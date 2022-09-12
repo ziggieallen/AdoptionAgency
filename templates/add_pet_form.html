@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    <h1>New Pet</h1>
+    <form method="POST">
+      <!-- dont need to specify form action sense the data is being sent to a route were 
+      already on (i think) -->
+      {{ form.hidden_tag() }}
+      <!-- needs to be included so that CSRF token can be passed and the form validated -->
+      {% for field in form if field.widget.input_type != 'hidden'%}
+      <p>
+        {{field.label}}
+        {{field}}
+  
+        {% for err in field.errors %}
+        {{err}}
+        {% endfor %}
+      </p>
+      {% endfor %}
+      <button>Submit</button>
+    </form>
+  </body>
+
+{% endblock %}

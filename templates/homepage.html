@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Pets{% endblock %}
+
+{% block content %}
+
+<h1>Pets</h1>
+
+<ul>
+  {% for pet in pets %}
+  <li>
+    <a href="">{{ pets.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<p><a class="btn btn-sm btn-secondary" href="/users/new">Add user</a></p>
+
+{% endblock %}
